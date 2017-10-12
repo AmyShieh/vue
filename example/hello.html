@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div v-if="isLogin">
+            {{msgLogin}}
+        </div>
+        <div v-else>
+            {{msgLogout}}
+        </div>
+        <div v-show="isLogin">
+            {{msg}}
+        </div>
+    </div>
+<script>
+    var app = new Vue({
+        el:"#app",
+        data:{
+            msg:"show",
+            msgLogin:"hello world",
+            msgLogout:"please login",
+            isLogin:true
+        }
+    })
+</script>
+</body>
+</html>
