@@ -107,6 +107,8 @@
     }
     Vue.directive("test",{
         bind:function (el,binding) {
+            console.log(el);
+            console.log(binding);
             el.style = "color:"+binding.value
             console.log("1.绑定");
         },
@@ -167,7 +169,6 @@
             sortStu:function () {
                 return sortByKey(this.stu,'age')
             },
-
         },
         methods:{
             addPoint:function () {
