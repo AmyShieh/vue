@@ -7,6 +7,7 @@
 </head>
 <body>
     <author></author>
+    <div id="test"></div>
     <script>
         var authorExtend = Vue.extend({
             template:"<p><a :href='authorUrl'>{{authorName}}</a></p>",
@@ -18,6 +19,17 @@
             }
         })
         new authorExtend().$mount("author");
+
+        var testRender = Vue.extend({
+            template:"<p><a :href='url' target='_blank'>{{test}}</a></p>",
+            data:function () {
+                return {
+                    test:"test",
+                    url:"http://xiechangqing.com"
+                }
+            }
+        })
+        new testRender().$mount("#test");
     </script>
 </body>
 </html>
