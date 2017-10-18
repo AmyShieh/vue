@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <header></header>
+    <script>
+        var headerEx = Vue.extend({
+            template:`<div><p>{{msg}}</p><p>——{{ans}}</p></div>`,
+            data:function () {
+                return {
+                    msg:"あなたは謝さんですか",
+                    ans:"はい、そうです"
+                }
+            },
+            props:["reply"]
+        })
+        new headerEx({propsData:{reply:this.ans}}).$mount("header");
+    </script>
+</body>
+</html>
