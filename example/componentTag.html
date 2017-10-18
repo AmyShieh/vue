@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>componentTag</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <component v-bind:is = "who"></component>
+        <button @click="changeComponent">changeComponent</button>
+    </div>
+    <script>
+        var componentA = {
+            "template":`<p style="color:skyblue">I'm amy</p>`
+        };
+        var componentB = {
+            "template":`<p style="color:pink">I'm amy</p>`
+        };
+        var componentC = {
+            "template":`<p style="color:orange">I'm amy</p>`
+        }
+        var app = new Vue({
+            "el":"#app",
+            data:{
+                who:"componentA"
+            },
+            components:{
+                "componentA":componentA,
+                "componentB":componentB,
+                "componentC":componentC,
+            },
+            methods:{
+                "changeComponent":function () {
+                    if(this.who == "componentA"){
+                        this.who = "componentB"
+                    }else if(this.who == "componentB"){
+                        this.who = "componentC"
+                    }else{
+                        this.who = "componentA"
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
