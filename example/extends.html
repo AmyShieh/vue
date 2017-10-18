@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>${agit}</p>
+        <button @click="plus">add</button>
+    </div>
+    <script>
+        var addConsole = {
+            updated:function () {
+                console.log("这里是局部extend,当前的值为"+this.a);
+            }
+        }
+        var app = new Vue({
+            el:"#app",
+            data:{
+                a:1,
+            },
+            methods:{
+                plus:function () {
+                    console.log("我是方法");
+                    this.a++;
+                }
+            },
+            updated:function () {
+                console.log("原生update")
+            },
+            extend:addConsole,
+            delimiters:['${','}']
+        });
+
+    </script>
+</body>
+</html>
