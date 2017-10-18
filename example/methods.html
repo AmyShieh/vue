@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{a}}</p>
+        <button @click="add(10)">add</button>
+        <test @click.native="add(20)"></test>
+    </div>
+    <button onclick="app.add(0)">外部add</button>
+    <script>
+        var btnCom = {
+            "template":`<button>自定义Add</button>`
+        }
+        var app = new Vue({
+            el:"#app",
+            data:{
+                a:1
+            },
+            components:{
+                "test":btnCom
+            },
+            methods:{
+                add:function (num) {
+                    if(num != ""){
+                        this.a += num
+                    }else{
+                        this.a++
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
