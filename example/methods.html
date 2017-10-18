@@ -8,7 +8,7 @@
 <body>
     <div id="app">
         <p>{{a}}</p>
-        <button @click="add(10)">add</button>
+        <button @mouseover="add(10,$event)">add</button>
         <test @click.native="add(20)"></test>
     </div>
     <button onclick="app.add(0)">外部add</button>
@@ -25,7 +25,8 @@
                 "test":btnCom
             },
             methods:{
-                add:function (num) {
+                add:function (num,event) {
+                    console.log(event)
                     if(num != ""){
                         this.a += num
                     }else{
