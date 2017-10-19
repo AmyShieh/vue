@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <amy>
+            <span slot="blogUrl">{{amyData.blogUrl}}</span>
+            <span slot="name">{{amyData.name}}</span>
+            <span slot="skill">{{amyData.skill}}</span>
+        </amy>
+    </div>
+    <template id="temp">
+        <div>
+            <p>个人博客：<slot name="blogUrl"></slot></p>
+            <p>个人姓名：<slot name="name"></slot></p>
+            <p>个人技能：<slot name="skill"></slot></p>
+        </div>
+    </template>
+    <script>
+        var amyComponent = {
+            template:"#temp",
+        }
+        var app = new Vue({
+            el:"#app",
+            data:{
+                amyData:{
+                    "blogUrl":'http://xiechangqing.com',
+                    "name":"aliveAmy",
+                    "skill":"web front-end"
+                }
+            },
+            components:{
+                "amy":amyComponent
+            }
+        })
+    </script>
+</body>
+</html>
