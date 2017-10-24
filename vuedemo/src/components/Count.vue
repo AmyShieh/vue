@@ -2,7 +2,7 @@
   <div class="count">
     <h1>{{msg}}</h1>
     <hr>
-    <h3>通过store获取：{{$store.state.count}}。</h3>
+    <h3>通过store获取：{{$store.state.a.count}}。</h3>
     <h3>通过computed处理数据来获取(有三种获取方式)：{{count}}</h3>
     <button @click="$store.commit('add',10)">+</button>
     <button @click="reduce">-</button>
@@ -38,7 +38,10 @@
 //      count:function () {
 //        return store.getters.count;
 //      }
-      ...mapGetters(['count'])
+//      ...mapGetters(['count'])
+      count:function () {
+        return this.$store.state.a.count
+      }
     },
     methods: {
       ...mapMutations(['add','reduce']),

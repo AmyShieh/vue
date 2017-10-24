@@ -32,9 +32,12 @@ const actions = {
     commit('reduce')
   }
 }
-export default new Vuex.Store({
+const moduleA = {
   state,
   mutations,
   getters,
   actions
+}
+export default new Vuex.Store({
+  modules:{a:moduleA}
 })
