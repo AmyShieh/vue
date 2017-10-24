@@ -4,6 +4,7 @@ import Hello from '@/components/HelloWorld'
 import Hi1 from '@/components/test1'
 import Hi2 from '@/components/test2'
 import params from '@/components/params'
+import Count from '@/components/Count'
 
 Vue.use(Router)
 
@@ -45,6 +46,9 @@ export default new Router({
     },{
       path:'/goNews/:newsId(\\d+)/:newTitle',
       redirect:'/params/:newsId(\\d+)/:newTitle'
+    },{
+      path:'/count',
+      component:Count
     }
 
   ]

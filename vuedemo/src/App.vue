@@ -9,7 +9,8 @@
       <router-link to="/params/719/aliveAmy is a brand">新闻列表</router-link> 丨
       <router-link to="/goNews/611/Amy is a girl">返回新闻（代有参数）</router-link> 丨
       <router-link to="/amy">返回Hi页面（利用alias）</router-link> 丨
-      <router-link to="/goback">返回首页</router-link>
+      <router-link to="/goback">返回首页</router-link> 丨
+      <router-link to="/count">计数</router-link>
       <hr>
       <br>
       <button @click="goback">返回按钮</button>
