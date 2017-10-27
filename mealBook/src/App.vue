@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    test
     <leftNav></leftNav>
     <router-view/>
   </div>
 </template>
 
 <script>
-  import leftNav from '@/component/common/leftNav'
+import leftNav from '@/components/common/leftNav'
 export default {
   name: 'app',
   components: {

@@ -43,6 +43,7 @@
     margin:0;
   }
   .leftNav{
+    float: left;
     width: 5%;
     background-color: pink;
     height: 100%;
@@ -51,6 +52,7 @@
     margin: 0;
     padding: 10px 0;
     text-align: center;
+    border-bottom:1px solid #333;
   }
 </style>
 
