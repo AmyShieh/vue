@@ -1,7 +1,23 @@
+.pa{
+  position: absolute;
+}
+.pr{
+  position: relative;
+}
 #app{
   .mainCon{
     width: 100%;
     height: calc(100% - 67px);
     background-color: pink;
+    #map{
+      width: 100%;
+      height: 100%;
+      background-color: pink;
+    }
+    #orgSel{
+      position: absolute;
+      top:0;
+      left:0;
+    }
   }
 }
