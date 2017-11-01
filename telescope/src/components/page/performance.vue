@@ -1,23 +1,42 @@
 <template>
   <div class="fullBox pr">
     <div id="map"></div>
-    <div id="orgSel">test</div>
+    <div class="component rootType">
+      <performanceData></performanceData>
+    </div>
+    <!--<div class="component orgSel">-->
+      <!--<orgSel></orgSel>-->
+    <!--</div>-->
   </div>
 </template>
 
 <script>
-  import BMap from 'BMap';
+  import performanceData from './performanceData.vue'
+  import orgSel from '../common/orgSel.vue'
+  import mapOption from '../../assets/js/common/mapOption';
+
   export default{
       name:'performance',
       data(){
           return{
-            msg:"performance"
+            msg:"performance",
           }
       },
-      mounted() {
-        var map = new BMap.Map("map");
-        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
-        map.setCurrentCity("北京");
+      components:{
+        performanceData
+      },
+      mounted:function() {
+        var self = this;
+        self.renderMap();
+
+      },
+      methods:{
+        renderMap:function () {
+          var map = new BMap.Map("map");
+          map.centerAndZoom("西安", 6);
+          map.enableScrollWheelZoom(true);
+          map.setMapStyle({styleJson: mapOption});
+        }
       }
   }
 </script>

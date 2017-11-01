@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import headerNav from '@/components/common/headerNav'
+  import headerNav from '@/components/common/headerNav';
   export default {
     name: 'app',
     components: {
