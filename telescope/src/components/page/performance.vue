@@ -28,7 +28,6 @@
       mounted:function() {
         var self = this;
         self.renderMap();
-
       },
       methods:{
         renderMap:function () {
