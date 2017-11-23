@@ -1,0 +1,7 @@
+body{
+    background-color: skyblue;
+}
+#pic{
+    height: 250px;
+    background: url("../images/cry.png") no-repeat;
+}
