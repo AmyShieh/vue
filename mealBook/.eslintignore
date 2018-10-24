@@ -1,6 +1,0 @@
-build/*.js
-config/*.js
-src/components/common/*.vue
-src/components/page/*.vue
-src/components/*.vue
-src/*.vue
