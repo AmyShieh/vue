@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "noImplicitAny": true,
+    "lib": ["es6", "es7", "es2017", "dom"],
+    "target": "es5",
+    "allowJs": true
+  },
+  "include": ["./src"]
+}
