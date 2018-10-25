@@ -1,4 +1,3 @@
-export default function printMe() {
-    console.log("I get called form print.js");
-    console.error("aasaasdas")
-}
+import _ from 'lodash';
+
+console.log(_.join(["another","module","loaded!"], " "));

@@ -11,13 +11,18 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            template: "./ind.html",
+            template: "./index.html",
             title: 'output management'
         })
     ],
     output: {
         filename: '[name].main.js',
         path: path.resolve(__dirname, "dist")
+    },
+    optimization: {
+      splitChunks: {
+          chunks: "all"
+      }
     },
     module: {
         rules: [
