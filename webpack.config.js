@@ -4,8 +4,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
     entry: {
-        app:"./src/index.js",
-        print: "./src/print.js"
+        index: './src/index.js'
     },
     devtool: 'inline-source-map',
     plugins: [
@@ -17,13 +16,14 @@ module.exports = {
     ],
     output: {
         filename: '[name].main.js',
+        chunkFilename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist")
     },
-    optimization: {
-      splitChunks: {
-          chunks: "all"
-      }
-    },
+    // optimization: {
+    //   splitChunks: {
+    //       chunks: "all"
+    //   }
+    // },
     module: {
         rules: [
             {test: /\.css$/, use: ["style-loader", "css-loader"]},
