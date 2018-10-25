@@ -1,15 +1,13 @@
 import _ from 'lodash'
-import './style.css';
-import bear from "./bear.jpeg";
+import printMe from './print.js'
 
 function component() {
-  const element = document.getElementById("app")
+  const element = document.getElementById("app");
+  const btn = document.createElement("button");
   element.innerHTML = _.join(["hello", "webpack"], ' ');
-  element.classList.add("hello");
-
-  const myBear = new Image();
-  myBear.src = bear;
-  element.appendChild(myBear);
+  btn.innerHTML = "click me and check the console";
+  btn.onclick = printMe;
+  element.appendChild(btn);
 
   return element
 }
