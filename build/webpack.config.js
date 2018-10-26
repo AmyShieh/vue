@@ -3,27 +3,28 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 module.exports = {
+    context: path.resolve(__dirname, "../src"),
     entry: {
-        index: './src/index.js'
+        index: './main.js'
     },
     devtool: 'inline-source-map',
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(['../dist']),
         new HtmlWebpackPlugin({
-            template: "./index.html",
+            template: "../index.html",
             title: 'output management'
         })
     ],
     output: {
         filename: '[name].main.js',
         chunkFilename: "[name].bundle.js",
-        path: path.resolve(__dirname, "dist")
+        path: path.resolve(__dirname, "../dist")
     },
-    // optimization: {
-    //   splitChunks: {
-    //       chunks: "all"
-    //   }
-    // },
+    optimization: {
+      splitChunks: {
+          chunks: "all"
+      }
+    },
     module: {
         rules: [
             {test: /\.css$/, use: ["style-loader", "css-loader"]},
