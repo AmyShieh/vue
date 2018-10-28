@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
     "build": "cross-env NODE_ENV='production' webpack --config build/webpack.prod.config.js --mode production",
     "dev": "cross-env NODE_ENV='development' webpack-dev-server --open --config build/webpack.dev.config.js --mode development",
     "dev-param-to-research": "webpack --mode development --progress --display-modules --display-reasons",
@@ -13,7 +13,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run lint"
     }
   },
   "lint-staged": {
