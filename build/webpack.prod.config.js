@@ -20,7 +20,7 @@ module.exports = merge(baseConfig, {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "..", "index.html"),
       filename: "index.html",
-      chunks: ["index", "common"],
+      chunks: ["mobile", "common"],
       vendor: "./vendor.dll.js",
       hash: true,
       minify: {

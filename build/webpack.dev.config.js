@@ -38,16 +38,11 @@ const devWebpackConfig = merge(baseConfig, {
     historyApiFallback: true,
     proxy: [() => proxyOptions]
   },
-  // watchOptions: {
-  //   ignored: /node_modules/, //忽略不用监听变更的目录
-  //   aggregateTimeout: 500, //防止重复保存频繁重新编译,500毫米内重复保存不打包
-  //   poll: 1000 //每秒询问的文件变更的次数
-  // },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "..", "index.html"),
       filename: "index.html",
-      chunks: ["index", "common"],
+      chunks: ["mobile", "common"],
       vendor: "./vendor.dll.js", // align with dll config
       hash: true,
       minify: {

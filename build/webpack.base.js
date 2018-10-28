@@ -7,6 +7,7 @@ const HappyPack = require("happypack")
 const os = require("os")
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 
+// instead of extract-text-webpack-plugin
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 function resolve(dir) {
@@ -22,11 +23,11 @@ function assetsPath(_path_) {
 module.exports = {
   context: path.resolve(__dirname, "../"),
   entry: {
-    index: "./src/index.js"
+    mobile: "./src/index.js"
   },
   output: {
     path: resolve("dist"),
-    filename: "[name].[hash].js"
+    filename: "[name].[hash:7].js"
   },
   resolve: {
     extensions: [".js", ".css", ".scss", ".json"],
@@ -106,7 +107,7 @@ module.exports = {
       threadPool: happyThreadPool
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "[name].[hash:7].css",
       chunkFilename: "[id].css"
     })
     // new ProgressBarPlugin({
