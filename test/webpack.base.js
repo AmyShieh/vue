@@ -23,17 +23,17 @@ function assetsPath(_path_) {
 module.exports = {
   context: path.resolve(__dirname, "../"),
   entry: {
-    mobile: "./src/index.js"
+    mobile: "./src/index.ts",
   },
   output: {
     path: resolve("dist"),
-    filename: "[name].[hash:7].js"
+    filename: "[name].[hash:7].js",
   },
   resolve: {
     extensions: [".js", ".css", ".scss", ".json"],
     alias: {
-      "@": resolve("src")
-    }
+      "@": resolve("src"),
+    },
   },
   module: {
     rules: [
@@ -41,7 +41,7 @@ module.exports = {
         test: /\.js$/,
         loader: "happypack/loader?id=happy-babel-js",
         include: [resolve("src")],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -49,10 +49,10 @@ module.exports = {
           "css-hot-loader",
           MiniCssExtractPlugin.loader,
           "css-loader",
-          "postcss-loader"
+          "postcss-loader",
         ],
         include: [resolve("src")],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
@@ -61,10 +61,10 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader",
-          "sass-loader"
+          "sass-loader",
         ],
         include: [resolve("src")],
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -72,19 +72,19 @@ module.exports = {
           loader: "url-loader",
           options: {
             name: assetsPath("images/[name].[hash:7].[ext]"),
-            limit: 10000
-          }
-        }
+            limit: 10000,
+          },
+        },
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: "url-loader",
         options: {
           limit: 10000,
-          name: assetsPath("fonts/[name].[hash:7].[ext]")
-        }
-      }
-    ]
+          name: assetsPath("fonts/[name].[hash:7].[ext]"),
+        },
+      },
+    ],
   },
   optimization: {
     splitChunks: {
@@ -95,24 +95,24 @@ module.exports = {
           minChunks: 2,
           maxInitialRequests: 5, // The default limit is too small to showcase the effect
           minSize: 0, // This is example is too small to create commons chunks
-          reuseExistingChunk: true
-        }
-      }
-    }
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
   plugins: [
     new HappyPack({
       id: "happy-babel-js",
       loaders: ["babel-loader?cacheDirectory=true"],
-      threadPool: happyThreadPool
+      threadPool: happyThreadPool,
     }),
     new MiniCssExtractPlugin({
       filename: "[name].[hash:7].css",
-      chunkFilename: "[id].css"
-    })
+      chunkFilename: "[id].css",
+    }),
     // new ProgressBarPlugin({
     //   format:
     //     "  build [:bar] " + chalk.green.bold(":percent") + " (:elapsed seconds)"
     // })
-  ]
+  ],
 }
