@@ -1,3 +1,18 @@
+Vue.component("greeting", {
+  template: "<div><p>{{ name }}</p><button @click='changeName'> keep alive </button></div>",
+  data: function () {
+    return {
+      name: "amy"
+    }
+  },
+  methods: {
+    changeName: function () {
+      this.name = "alive Amy"
+    }
+  }
+})
+
+
 new Vue({
   el: '#app',
   data: {
