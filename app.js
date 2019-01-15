@@ -18,7 +18,8 @@ new Vue({
   data: {
     name: 'Amy',
     age: 24,
-    website: "<a href='https://github.com/AmyShieh'>amy Shieh</a>"
+    website: "<a href='https://github.com/AmyShieh'>amy Shieh</a>",
+    inputValue: "input value"
   },
   methods: {
     greeting: function (time) {
@@ -26,6 +27,9 @@ new Vue({
     },
     addAge: function () {
       this.age++;
+    },
+    getInputValue: function () {
+      this.inputValue = this.$refs["input-value"].value;
     }
   },
   computed: {
